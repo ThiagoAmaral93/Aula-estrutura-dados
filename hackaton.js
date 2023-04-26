@@ -1,8 +1,8 @@
-const maxHeapify = (arr, n, i, sort) => {
+const maxHeapify = (arr, n, i, type, sort) => {
     let largest = i;
     let l = 2 * i + 1; //left child index
     let r = 2 * i + 2; //right child index
-    if (sort === 'name') {
+    if (type === 'name' && sort === 'asc') {
         //If left child is smaller than root
         if (l < n && arr[l].nome > arr[largest].nome) {
             largest = l;
@@ -12,7 +12,7 @@ const maxHeapify = (arr, n, i, sort) => {
         if (r < n && arr[r].nome > arr[largest].nome) {
             largest = r;
         }
-    } else if (sort === 'id') {
+    } else if (type === 'id' && sort === 'asc') {
         //If left child is smaller than root
         if (l < n && arr[l].id > arr[largest].id) {
             largest = l;
@@ -22,7 +22,7 @@ const maxHeapify = (arr, n, i, sort) => {
         if (r < n && arr[r].id > arr[largest].id) {
             largest = r;
         }
-    } else if (sort === 'age') {
+    } else if (type === 'age' && sort === 'asc') {
         //If left child is smaller than root
         if (l < n && arr[l].idade > arr[largest].idade) {
             largest = l;
@@ -42,16 +42,16 @@ const maxHeapify = (arr, n, i, sort) => {
         arr[largest] = temp;
 
         // Recursively heapify the affected sub-tree 
-        maxHeapify(arr, n, largest, sort);
+        maxHeapify(arr, n, largest, type, sort);
     }
 }
 
-// main function to do heap sort 
-const heapSort = (arr, sort) => {
+// main function to do heap type 
+const heaptype = (arr, type, sort) => {
     const arrayLenght = arr.length
     // Build heap (rearrange array) 
     for (let i = parseInt(arrayLenght / 2 - 1); i >= 0; i--) {
-        maxHeapify(arr, arrayLenght, i, sort);
+        maxHeapify(arr, arrayLenght, i, type, sort);
     }
 
     // One by one extract an element from heap 
@@ -62,7 +62,7 @@ const heapSort = (arr, sort) => {
         arr[i] = temp;
 
         // call max heapify on the reduced heap 
-        maxHeapify(arr, i, 0, sort);
+        maxHeapify(arr, i, 0, type, sort);
     }
     return arr
 }
@@ -143,4 +143,4 @@ var persons = [{
 
 
 const banana = [2, 5, 1, -25, 1203123]
-console.log(heapSort(persons, 'age'))
+console.log(heaptype(persons, 'age', 'asc'))
