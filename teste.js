@@ -187,7 +187,7 @@ for(let i = 0; i<=3; i++)
 console.log(x)*/
 
 
-
+/*
 function merge(x, inicio, fim) {
     let meio = 0;
     if(inicio < fim) {
@@ -231,4 +231,4 @@ function intercala(x, inicio, fim, meio) {
 const fakeArray = [3, 1, 2, 5]
 
 merge(fakeArray, 0, fakeArray.length-1)
-console.log(fakeArray)
+console.log(fakeArray)*/
