@@ -1,67 +1,100 @@
 const maxHeapify = (arr, n, i, type, sort) => {
     let largest = i;
-    let l = 2 * i + 1; //left child index
-    let r = 2 * i + 2; //right child index
+    let l = 2 * i + 1; // indice do item da esquerda
+    let r = 2 * i + 2; // indice do item da direita
+
+    if (type === 'name' && sort === 'desc') {
+        // se o item da esquerda é maior que o raiz
+        if (l < n && arr[l].nome < arr[largest].nome) {
+            largest = l;
+        }
+        // se o item da direita é maior que o raiz
+        if (r < n && arr[r].nome < arr[largest].nome) {
+            largest = r;
+        }
+    } else if (type === 'id' && sort === 'desc') {
+        // se o item da esquerda é maior que o raiz
+        if (l < n && arr[l].id < arr[largest].id) {
+            largest = l;
+        }
+
+        // se o item da esquerda é maior que o raiz
+        if (r < n && arr[r].id < arr[largest].id) {
+            largest = r;
+        }
+    } else if (type === 'age' && sort === 'desc') {
+        // se o item da esquerda é maior que o raiz
+        if (l < n && arr[l].idade < arr[largest].idade) {
+            largest = l;
+        }
+
+        // se o item da esquerda é maior que o raiz
+        if (r < n && arr[r].idade < arr[largest].idade) {
+            largest = r;
+        }
+    }
+
+
+
+    
     if (type === 'name' && sort === 'asc') {
-        //If left child is smaller than root
+        // se o item da esquerda é menor que o raiz
         if (l < n && arr[l].nome > arr[largest].nome) {
             largest = l;
         }
 
-        // If right child is smaller than smallest so far 
+        // se o item da direita é menor que o raiz
         if (r < n && arr[r].nome > arr[largest].nome) {
             largest = r;
         }
     } else if (type === 'id' && sort === 'asc') {
-        //If left child is smaller than root
+        // se o item da esquerda é menor que o raiz
         if (l < n && arr[l].id > arr[largest].id) {
             largest = l;
         }
 
-        // If right child is smaller than smallest so far 
+        // se o item da direita é menor que o raiz
         if (r < n && arr[r].id > arr[largest].id) {
             largest = r;
         }
     } else if (type === 'age' && sort === 'asc') {
-        //If left child is smaller than root
+        // se o item da esquerda é menor que o raiz
         if (l < n && arr[l].idade > arr[largest].idade) {
             largest = l;
         }
 
-        // If right child is smaller than smallest so far 
+        // se o item da direita é menor que o raiz
         if (r < n && arr[r].idade > arr[largest].idade) {
             largest = r;
         }
     }
 
-
-    // If smallest is not root 
+    // se é menor não é a raiz
     if (largest != i) {
         let temp = arr[i];
         arr[i] = arr[largest];
         arr[largest] = temp;
 
-        // Recursively heapify the affected sub-tree 
+        // faz a recursivdade com heapify e pega a sub arvore
         maxHeapify(arr, n, largest, type, sort);
     }
 }
-
-// main function to do heap type 
-const heaptype = (arr, type, sort) => {
+// funcao principal do heap
+const heapSort = (arr, type, sort) => {
     const arrayLenght = arr.length
-    // Build heap (rearrange array) 
+    // organiza o heap (reorganiza o array)
     for (let i = parseInt(arrayLenght / 2 - 1); i >= 0; i--) {
         maxHeapify(arr, arrayLenght, i, type, sort);
     }
 
-    // One by one extract an element from heap 
+    // um por um retira os itens do heap
     for (let i = arrayLenght - 1; i >= 0; i--) {
-        // Move current root to end 
+        // move a atual raiz para o final
         let temp = arr[0];
         arr[0] = arr[i];
         arr[i] = temp;
 
-        // call max heapify on the reduced heap 
+        // chama a funcao maxHeapify para reduzir o heap
         maxHeapify(arr, i, 0, type, sort);
     }
     return arr
@@ -142,5 +175,4 @@ var persons = [{
 ]
 
 
-const banana = [2, 5, 1, -25, 1203123]
-console.log(heaptype(persons, 'age', 'asc'))
+console.log(heapSort(persons, 'age', 'desc'))
