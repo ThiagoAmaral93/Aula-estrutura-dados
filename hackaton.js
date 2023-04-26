@@ -1,3 +1,5 @@
+const prompt = require ('prompt-read');
+
 const maxHeapify = (arr, n, i, type, sort) => {
     let largest = i;
     let l = 2 * i + 1; // indice do item da esquerda
@@ -174,5 +176,28 @@ var persons = [{
     }
 ]
 
+// tamo pedindo pro usuario qual campo ele quer ordenar do objeto
+const selectedType = prompt('1 - Digite 1 para ordenar por ID\n2 - Digite 2 para ordenar por idade\n3 - Digite 3 para ordenar por nome\n')
+let parsedtype = 2
+// parseamo o campo para uma constante definida para melhor compreensão
+if(selectedType === '1') {
+    parsedtype = 'id'
+} else if (selectedType === '2') {
+    parsedtype = 'age'
+} else if (selectedType === '3') {
+    parsedtype = 'name'
+}
 
-console.log(heapSort(persons, 'age', 'desc'))
+// parseamo o campo para uma constante definida para melhor compreensão
+const selectedSort = prompt('1 - Digite 1 para ordenar por decrescente\n2 - Digite 2 para ordenar por crescente\n')
+let parsedSort = 2
+if(selectedSort === '1') {
+    parsedSort = 'desc'
+} else if (selectedSort === '2') {
+    parsedSort = 'asc'
+} else {
+    parsedSort = 'asc'
+}
+
+// listamos os dados solicitados pelo usuário
+console.log(heapSort(persons, parsedtype, parsedSort))
