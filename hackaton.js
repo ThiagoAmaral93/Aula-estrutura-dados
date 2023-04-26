@@ -1,3 +1,10 @@
+// participantes
+// Thiago Amaral
+// Victor Cardoso
+// Rodrigo Pereira dos Santos
+// Matheus Seibt
+// Raryson Pereira Rost
+
 const prompt = require ('prompt-read');
 
 const maxHeapify = (arr, n, i, type, sort) => {
