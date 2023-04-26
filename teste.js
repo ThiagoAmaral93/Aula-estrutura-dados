@@ -232,3 +232,74 @@ const fakeArray = [3, 1, 2, 5]
 
 merge(fakeArray, 0, fakeArray.length-1)
 console.log(fakeArray)*/
+
+
+
+
+
+let x = [7,5,9,8,6]
+
+function transforma_heap(qtde){
+
+    let i
+    let pai
+    let aux
+
+    for (let index = qtde/2; index <= 1; index--) {
+        heap(i,qtde)
+    }
+
+}
+
+function heap(i,qtde){
+
+    let f_esq
+    let f_dir
+    let maior
+    let aux
+
+    if (2*i+1 <= qtde) {
+        f_esq = 2*i+1
+        f_dir = 2*i
+        if (x[f_esq] >= x[f_dir] && x[f_esq] > x[i]) {
+            maior = 2*i+1
+        }else if((x[f_dir] > x[f_esq] && x[f_dir] > x[i])){
+            maior = 2*i
+        }
+    }else if(2*i <= qtde){
+        f_dir = 2*i
+        if(x[f_dir] > x[i]){
+            maior <- 2*i
+        }
+
+    }if(maior != i){
+        aux = x[i]
+        x[i] = x[maior]
+        x[maior] = aux
+        heap(maior, qtde)
+    }
+
+}
+
+function ordena(qtde){
+
+    let i
+    let aux
+    let ultima_posi
+
+    for (let index = qtde; index <= 2; index--) {
+        aux = x[1]
+        x[1] = x[i]
+        x[i] = aux
+        ultima_posi = i-1
+        heap(1, ultima_posi)
+    }
+
+}
+
+
+console.log(x)
+
+transforma_heap(x)
+
+console.log(x)
