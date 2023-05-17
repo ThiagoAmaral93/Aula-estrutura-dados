@@ -304,28 +304,6 @@ transforma_heap(x)
 
 console.log(x)*/
 
-
-
-class Aluno {
-    constructor() {
-    this.numero = 0
-    this.nome = ""
-    this.a1 = 0
-    this.a2 = 0
-    this.af = 0
-    this.media = 0
-    }
-   }
-
-
-
-var aluno = new Aluno()
-aluno.numero = 1
-aluno.nome = "Elmario"
-aluno.a1 = 4
-console.log(aluno)
-
-
 class Notas {
     constructor() {
     this.a1 = 0
@@ -341,5 +319,9 @@ class Notas {
     this.notas = new Notas()
     }
    }
-   var aluno = new Aluno(1, "Elmario")
-   console.log(aluno)
+   var alunos = [
+   new Aluno(1, "Elmario"),
+   new Aluno(2, "Raio"),
+   new Aluno(3, "Testa")
+   ]              
+   console.log(alunos)
