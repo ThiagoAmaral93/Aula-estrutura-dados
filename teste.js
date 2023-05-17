@@ -304,4 +304,23 @@ transforma_heap(x)
 
 console.log(x)*/
 
-teste
+
+
+class Aluno {
+    constructor() {
+    this.numero = 0
+    this.nome = ""
+    this.a1 = 0
+    this.a2 = 0
+    this.af = 0
+    this.media = 0
+    }
+   }
+
+
+
+var aluno = new Aluno()
+aluno.numero = 1
+aluno.nome = "Elmario"
+aluno.a1 = 4
+console.log(aluno
