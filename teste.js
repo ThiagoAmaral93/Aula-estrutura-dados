@@ -237,7 +237,7 @@ console.log(fakeArray)*/
 
 
 
-let x = [7,5,9,8,6]
+/*let x = [7,5,9,8,6]
 
 function transforma_heap(qtde){
 
@@ -302,4 +302,6 @@ console.log(x)
 
 transforma_heap(x)
 
-console.log(x)
+console.log(x)*/
+
+teste
