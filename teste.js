@@ -323,4 +323,23 @@ var aluno = new Aluno()
 aluno.numero = 1
 aluno.nome = "Elmario"
 aluno.a1 = 4
-console.log(aluno
+console.log(aluno)
+
+
+class Notas {
+    constructor() {
+    this.a1 = 0
+    this.a2 = 0
+    this.af = 0
+    this.media = 0
+    }
+   }
+   class Aluno {
+    constructor(numero, nome) {
+    this.numero = numero
+    this.nome = nome
+    this.notas = new Notas()
+    }
+   }
+   var aluno = new Aluno(1, "Elmario")
+   console.log(aluno)
