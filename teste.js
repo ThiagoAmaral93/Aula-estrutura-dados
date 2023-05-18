@@ -309,8 +309,16 @@ class Notas {
     this.a1 = 0
     this.a2 = 0
     this.af = 0
-    this.media = 0
+    this.media = null
     }
+    media (){
+        if (this.af==null){
+            return this.a1 + this.a2
+        }else {
+        return this.a1 < this.a2 ? this.af + this.a2: this.a1 + this.af;
+        }
+    }
+    
    }
    class Aluno {
     constructor(numero, nome) {
@@ -319,21 +327,21 @@ class Notas {
     this.notas = new Notas()
     }
    }
-   var alunos = [
-   new Aluno(1, "Elmario"),
-   new Aluno(2, "Raio"),
-   new Aluno(3, "Testa")
-   ]              
-   console.log(alunos)
+   var aluno = new Aluno(1, "Elmario")
+   aluno.notas.a1=4
+   aluno.notas.a2=1
+   console.log(aluno)
 
 
 
 
-   // Define Object Pessoa
-function Pessoa(name, age) {
+   /* Define Object Pessoa
+class Pessoa {
+    constructor (name, age){
     this.name = name
     this.age = age
    }
+}
    // Define Array pessoas
    var pessoas = new Array()
    pessoas.push(new Pessoa("Bjorn", 25))
@@ -341,4 +349,4 @@ function Pessoa(name, age) {
    pessoas.push(new Pessoa("Athelstan", 18))
    pessoas.push(new Pessoa("Ragnar", 30))
    pessoas.push(new Pessoa("Floki", 23))
-   pessoas.push(new Pessoa("Rollo", 27)
+   pessoas.push(new Pessoa("Rollo", 27)*/
