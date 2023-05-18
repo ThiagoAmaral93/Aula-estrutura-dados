@@ -325,3 +325,20 @@ class Notas {
    new Aluno(3, "Testa")
    ]              
    console.log(alunos)
+
+
+
+
+   // Define Object Pessoa
+function Pessoa(name, age) {
+    this.name = name
+    this.age = age
+   }
+   // Define Array pessoas
+   var pessoas = new Array()
+   pessoas.push(new Pessoa("Bjorn", 25))
+   pessoas.push(new Pessoa("Lagertha", 32))
+   pessoas.push(new Pessoa("Athelstan", 18))
+   pessoas.push(new Pessoa("Ragnar", 30))
+   pessoas.push(new Pessoa("Floki", 23))
+   pessoas.push(new Pessoa("Rollo", 27)
