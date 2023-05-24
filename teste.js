@@ -304,49 +304,52 @@ transforma_heap(x)
 
 console.log(x)*/
 
+//
+// Classes
+// Prof. ElmÃ¡rio Dutra
+//
+
+// Notas
 class Notas {
-    constructor() {
-    this.a1 = 0
-    this.a2 = 0
-    this.af = 0
-    this.media = null
+    constructor (a1, a2, af) {
+        this.a1 = a1 == undefined ? 0 : a1
+        this.a2 = a2 == undefined ? 0 : a2
+        this.af = af
+        this.calculanf()
     }
-    media (){
-        if (this.af==null){
-            return this.a1 + this.a2
-        }else {
-        return this.a1 < this.a2 ? this.af + this.a2: this.a1 + this.af;
+
+    calculanf() {
+        if (this.af == undefined) {
+            this.nf = this.a1 + this.a2
+        } else {
+            this.nf = this.a1 < this.a2 ? this.af + this.a2 : this.a1 + this.af
         }
     }
-    
-   }
-   class Aluno {
-    constructor(numero, nome) {
-    this.numero = numero
-    this.nome = nome
-    this.notas = new Notas()
+
+    resultado() {
+        return this.nf >= 6 ? "Aprovado" : "Reprovado"
     }
-   }
-   var aluno = new Aluno(1, "Elmario")
-   aluno.notas.a1=4
-   aluno.notas.a2=1
-   console.log(aluno)
 
-
-
-
-   /* Define Object Pessoa
-class Pessoa {
-    constructor (name, age){
-    this.name = name
-    this.age = age
-   }
+    printNotas() {
+        this.calculanf()
+        console.log("a1: ", this.a1)
+        console.log("a2: ", this.a2)
+        if (this.af !== undefined) console.log("af: ", this.af)
+        console.log("nf: ", this.nf)
+        console.log("resultado: ",this.resultado())
+    }
 }
-   // Define Array pessoas
-   var pessoas = new Array()
-   pessoas.push(new Pessoa("Bjorn", 25))
-   pessoas.push(new Pessoa("Lagertha", 32))
-   pessoas.push(new Pessoa("Athelstan", 18))
-   pessoas.push(new Pessoa("Ragnar", 30))
-   pessoas.push(new Pessoa("Floki", 23))
-   pessoas.push(new Pessoa("Rollo", 27)*/
+
+// Aluno
+class Aluno {
+    constructor (nome, numero) {
+        this.nome = nome
+        this.numero = numero
+        this.notas = new Notas()
+    }
+}
+
+let aluno = new Aluno("Elmario", 1)
+console.log(aluno)
+aluno.notas.a1 = 2
+aluno.notas.printNotas()
