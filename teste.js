@@ -356,6 +356,8 @@ aluno.notas.printNotas()*/
 //LinkedList
 
 
+const prompt = require ('prompt-read');
+
 class LinkedList {
     constructor() {
     this.count = 0
@@ -372,7 +374,7 @@ class LinkedList {
 
 
 
-Preâmbulo
+//Preâmbulo
 // FUNCTIONS
 function message(msg, timems) {
  var time = timems == undefined ? 2000 : timems
@@ -387,7 +389,11 @@ function sleep(ms) {
  } while (currentDate - date < ms);
 }
 
-Main
+function wait() {
+    var p = prompt("Press enter continue")
+    
+}
+//Main
 // MAIN
 var list = new LinkedList()
 // Menu
@@ -406,7 +412,7 @@ do {
  console.log("7 - Apagar Lista")
  console.log("9 - Sair")
  var option = prompt("Opção: ", "number")
-Main
+//Main
  switch(option) {
  case 0: // test mode
  list.push(1)
@@ -416,18 +422,21 @@ Main
  //wait()
  //process.exit()
  break
+
  case 1:
  var element = prompt("Elemento: ")
  list.push(element)
  message("Elemento inserido!!!")
  break
-Main
+//Main
  case 2:
  var element = prompt("Elemento: ")
  var index = prompt("Indice: ")
- if (list.insert(element, index)) {
+ if 
+ (list.insert(element, index)) {
  message("Elemento "+ element + " inserido na posição" + index)
- } else {
+ } 
+ else {
  message("Erro ao inserir!")
  }
  break
@@ -439,12 +448,11 @@ Main
  message("Elemento não existe!") 
  }
  break
-Main
+//Main
  case 4:
  var index = prompt("Indice: ")
  if (list.removeAt(index)) {
- message("Elemento removido da posição " + index + 
-"!")
+ message("Elemento removido da posição " + index + "!")
  } else {
  message("Erro ao remover!")
  }
@@ -452,7 +460,7 @@ Main
  case 5:
  message("Existem " + list.size() + " elementos.")
  break
-Main
+//Main
  case 6:
  var element = prompt("Procurado: ")
  var position = list.indexOf(element) 
