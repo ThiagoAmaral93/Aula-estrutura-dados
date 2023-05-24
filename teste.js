@@ -370,6 +370,13 @@ class LinkedList {
     this.element = element
     this.next = undefined
     }
+    isEmpty(){
+        return this.size() == 0
+    }
+    size (){
+        return this.count
+    }
+
    }
 
 
