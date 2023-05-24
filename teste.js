@@ -310,7 +310,7 @@ console.log(x)*/
 //
 
 // Notas
-class Notas {
+/*class Notas {
     constructor (a1, a2, af) {
         this.a1 = a1 == undefined ? 0 : a1
         this.a2 = a2 == undefined ? 0 : a2
@@ -352,4 +352,123 @@ class Aluno {
 let aluno = new Aluno("Elmario", 1)
 console.log(aluno)
 aluno.notas.a1 = 2
-aluno.notas.printNotas()
+aluno.notas.printNotas()*/
+//LinkedList
+
+
+class LinkedList {
+    constructor() {
+    this.count = 0
+    this.head = undefined
+    }
+   }
+   //Node
+   class Node {
+    constructor(element) {
+    this.element = element
+    this.next = undefined
+    }
+   }
+
+
+
+Preâmbulo
+// FUNCTIONS
+function message(msg, timems) {
+ var time = timems == undefined ? 2000 : timems
+ console.log("\nMessage: ", msg)
+ sleep(time)
+}
+function sleep(ms) {
+ const date = Date.now();
+ let currentDate = null;
+ do {
+ currentDate = Date.now();
+ } while (currentDate - date < ms);
+}
+
+Main
+// MAIN
+var list = new LinkedList()
+// Menu
+do {
+ console.clear()
+ console.log(" LISTA ENCADEADA SIMPLES")
+ console.log("=============================\n")
+ console.log(" LISTA: [" + list.toString() + "]\n")
+ console.log("** OPERAÇÕES **")
+ console.log("1 - Inserir")
+ console.log("2 - Inserir na Posição")
+ console.log("3 - Remover")
+ console.log("4 - Remover da Posição")
+ console.log("5 - Tamanho")
+ console.log("6 - Procurar")
+ console.log("7 - Apagar Lista")
+ console.log("9 - Sair")
+ var option = prompt("Opção: ", "number")
+Main
+ switch(option) {
+ case 0: // test mode
+ list.push(1)
+ list.push(2)
+ list.push(3)
+ list.push(4)
+ //wait()
+ //process.exit()
+ break
+ case 1:
+ var element = prompt("Elemento: ")
+ list.push(element)
+ message("Elemento inserido!!!")
+ break
+Main
+ case 2:
+ var element = prompt("Elemento: ")
+ var index = prompt("Indice: ")
+ if (list.insert(element, index)) {
+ message("Elemento "+ element + " inserido na posição" + index)
+ } else {
+ message("Erro ao inserir!")
+ }
+ break
+ case 3:
+ var element = prompt("Elemento: ")
+ if (list.remove(element)) { 
+ message("Elemento removido!") 
+ } else { 
+ message("Elemento não existe!") 
+ }
+ break
+Main
+ case 4:
+ var index = prompt("Indice: ")
+ if (list.removeAt(index)) {
+ message("Elemento removido da posição " + index + 
+"!")
+ } else {
+ message("Erro ao remover!")
+ }
+ break
+ case 5:
+ message("Existem " + list.size() + " elementos.")
+ break
+Main
+ case 6:
+ var element = prompt("Procurado: ")
+ var position = list.indexOf(element) 
+ if (position != -1) {
+ message("Elemento " + element + "encontrado na posição" + position)
+ } else {
+ message("Elemento não encontrado!")
+ }
+ break
+ case 7:
+ list = new LinkedList()
+ break
+ case 9:
+ console.clear()
+ break
+ default:
+ message("Opção inválida!")
+ }
+} while (option != 9)
