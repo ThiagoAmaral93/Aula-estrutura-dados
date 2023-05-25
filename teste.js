@@ -397,7 +397,159 @@ class Node {
         return undefined;
     }
 
+    indexOf (element) {
+        let current = this.head;
+        for (let i = 0; i < this.count && current != null; i++) {
+            if (element == current.element) return i;
+            current = current.next;
+        }
+        return -1;
+    }
+
+   // Método removeAt
+ removeAt(index) {
+    if (index >= 0 && index < this.count) {
+        let current = this.head;
+        if (index === 0) {
+            this.head = current.next;
+        } else {
+            let previous = this.getElementAt(index - 1);
+            current = previous.next;
+            previous.next = current.next;
+        }
+        this.count--;
+        return true;
+    }
+    return false;
+}
+
+//Método remove
+ remove (element) {
+    let index = this.indexOf(element);
+    if (index != -1) {
+        this.removeAt(index);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+////Método insert
+ insert (element, index) {
+    if (index >= 0 && index <= this.count) {
+        const node = new Node(element);
+        if (index == 0) {
+            const current = this.head;
+            node.next = current;
+            this.head = node;
+        } else {
+            const previous = this.getElementAt(index - 1);
+            const current = previous.next;
+            node.next = current;
+            previous.next = node;
+        }
+        this.count++;
+        return true;
+    }
+    return false;
+}
+
+//Métodos adicionais
+ isEmpty () {
+ return this.size() === 0
+ }
+ size() {
+ return this.count
+ }
+ toString () {
+ let arr = []
+ let current = this.head
+ for(let i = 0; i < this.size(); i++) {
+ arr.push(current.element)
+ current = current.next 
+ }
+ return arr.toString()
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
+
+
     isEmpty() {
         return this.size() == 0;
     }
