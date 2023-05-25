@@ -376,6 +376,15 @@ class Node {
     size() {
         return this.count;
     }
+    toString(){
+        let arr = []
+        let current = this.head
+        for (let i = 0; 1< this.size(); i++){
+            arr.push(current.element)
+            current= current.next
+        }
+        return arr.toString()
+    }
 }
 
 //Preâmbulo
