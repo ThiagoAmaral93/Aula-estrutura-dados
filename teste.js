@@ -370,6 +370,22 @@ class Node {
         this.element = element;
         this.next = undefined;
     }
+    
+    push(element) {
+        const node = new Node(element);
+        let current;
+        if (this.head == null) {
+            this.head = node;
+        } else {
+            current = this.head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = node;
+        }
+        this.count++;
+    }
+    
     isEmpty() {
         return this.size() == 0;
     }
