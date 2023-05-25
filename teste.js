@@ -455,20 +455,27 @@ class Node {
 }
 
 //Métodos adicionais
- isEmpty () {
- return this.size() === 0
+ isEmpty()
+ {
+ 	return this.size() === 0
  }
- size() {
- return this.count
+
+ size()
+ {
+ 	return this.count
  }
- toString () {
- let arr = []
- let current = this.head
- for(let i = 0; i < this.size(); i++) {
- arr.push(current.element)
- current = current.next 
- }
- return arr.toString()
+
+ toString()
+ {
+ 	let arr =[]
+ 	let current = this.head
+ 	for (let i = 0; i < this.size(); i++)
+ 	{
+ 		arr.push(current.element)
+ 		current = current.next
+ 	}
+
+ 	return arr.toString()
  }
 
  isEmpty() {
