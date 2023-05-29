@@ -356,7 +356,7 @@ aluno.notas.printNotas()*/
 //LinkedList
 
 
-const prompt = require("prompt-read");
+/*const prompt = require("prompt-read");
 
 class LinkedList {
     constructor() {
@@ -597,4 +597,7 @@ do {
         default:
             message("Opção inválida!");
     }
-} while (option != 9);
+} while (option != 9);*/
+
+
+
