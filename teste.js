@@ -598,6 +598,260 @@ do {
         default:
             message("Opção inválida!");
     }
-<<<<<<< HEAD
+
 } while (option != 9);
 */
+
+
+
+
+
+//Fifo
+
+
+
+
+const prompt = require("prompt-read");
+
+class LinkedList {
+    constructor() {
+        this.count = 0;
+        this.head = undefined;
+    }
+}
+//Node
+class Node {
+    constructor(element) {
+        this.element = element;
+        this.next = undefined;
+    }
+    
+    push(element) {
+        const node = new Node(element);
+        let current;
+        if (this.head == null) {
+            this.head = node;
+        } else {
+            current = this.head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = node;
+        }
+        this.count++;
+    }
+
+    getElementAt (index) {
+        if (index >= 0 && index <= this.count) {
+            let node = this.head;
+            for (let i = 0; i < index && node != null; i++) {
+                node = node.next;
+            }
+            return node;
+        }
+        return undefined;
+    }
+
+    indexOf (element) {
+        let current = this.head;
+        for (let i = 0; i < this.count && current != null; i++) {
+            if (element == current.element) return i;
+            current = current.next;
+        }
+        return -1;
+    }
+
+   // Método removeAt
+ removeAt(index) {
+    if (index >= 0 && index < this.count) {
+        let current = this.head;
+        if (index === 0) {
+            this.head = current.next;
+        } else {
+            let previous = this.getElementAt(index - 1);
+            current = previous.next;
+            previous.next = current.next;
+        }
+        this.count--;
+        return true;
+    }
+    return false;
+}
+
+//Método remove
+ remove (element) {
+    let index = this.indexOf(element);
+    if (index != -1) {
+        this.removeAt(index);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+////Método insert
+ insert (element, index) {
+    if (index >= 0 && index <= this.count) {
+        const node = new Node(element);
+        if (index == 0) {
+            const current = this.head;
+            node.next = current;
+            this.head = node;
+        } else {
+            const previous = this.getElementAt(index - 1);
+            const current = previous.next;
+            node.next = current;
+            previous.next = node;
+        }
+        this.count++;
+        return true;
+    }
+    return false;
+}
+
+//Métodos adicionais
+ isEmpty()
+ {
+ 	return this.size() === 0
+ }
+
+ size()
+ {
+ 	return this.count
+ }
+
+ toString()
+ {
+ 	let arr =[]
+ 	let current = this.head
+ 	for (let i = 0; i < this.size(); i++)
+ 	{
+ 		arr.push(current.element)
+ 		current = current.next
+ 	}
+
+ 	return arr.toString()
+ }
+
+ isEmpty() {
+        return this.size() == 0;
+    }
+    size() {
+        return this.count;
+    }
+    toString(){
+        let arr = []
+        let current = this.head
+        for (let i = 0; 1< this.size(); i++){
+            arr.push(current.element)
+            current= current.next
+        }
+        return arr.toString()
+    }
+}
+
+//Preâmbulo
+// FUNCTIONS
+function message(msg, timems) {
+    var time = timems == undefined ? 2000 : timems;
+    console.log("\nMessage: ", msg);
+    sleep(time);
+}
+function sleep(ms) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+        currentDate = Date.now();
+    } while (currentDate - date < ms);
+}
+
+function wait() {
+    var p = prompt("Press enter continue");
+}
+//Main
+// MAIN
+var list = new LinkedList();
+// Menu
+do {
+    console.clear();
+    console.log(" LISTA ENCADEADA SIMPLES");
+    console.log("=============================\n");
+    console.log(" LISTA: [" + list.toString() + "]\n");
+    console.log("** OPERAÇÕES **");
+    console.log("1 - Inserir");
+    console.log("2 - Inserir na Posição");
+    console.log("3 - Remover");
+    console.log("4 - Remover da Posição");
+    console.log("5 - Tamanho");
+    console.log("6 - Procurar");
+    console.log("7 - Apagar Lista");
+    console.log("9 - Sair");
+    var option = prompt("Opção: ", "number");
+    //Main
+    
+    switch (option) {
+        case 0: // test mode
+            list.push(1);
+            list.push(2);
+            list.push(3);
+            list.push(4);
+            //wait()
+            //process.exit()
+            break;
+
+        case 1:
+            var element = prompt("Elemento: ");
+            list.push(element);
+            message("Elemento inserido!!!");
+            break;
+        //Main
+        case 2:
+            var element = prompt("Elemento: ");
+            var index = prompt("Indice: ");
+            if (list.insert(element, index)) {
+                message("Elemento " + element + " inserido na posição" + index);
+            } else {
+                message("Erro ao inserir!");
+            }
+            break;
+        case 3:
+            var element = prompt("Elemento: ");
+            if (list.remove(element)) {
+                message("Elemento removido!");
+            } else {
+                message("Elemento não existe!");
+            }
+            break;
+        //Main
+        case 4:
+            var index = prompt("Indice: ");
+            if (list.removeAt(index)) {
+                message("Elemento removido da posição " + index + "!");
+            } else {
+                message("Erro ao remover!");
+            }
+            break;
+        case 5:
+            message("Existem " + list.size() + " elementos.");
+            break;
+        //Main
+        case 6:
+            var element = prompt("Procurado: ");
+            var position = list.indexOf(element);
+            if (position != -1) {
+                message("Elemento " + element + "encontrado na posição" + position);
+            } else {
+                message("Elemento não encontrado!");
+            }
+            break;
+        case 7:
+            list = new LinkedList();
+            break;
+        case 9:
+            console.clear();
+            break;
+        default:
+            message("Opção inválida!");
+    }
+
+} while (option != 9);
