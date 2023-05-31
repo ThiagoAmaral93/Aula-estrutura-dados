@@ -356,7 +356,7 @@ aluno.notas.printNotas()*/
 //LinkedList
 
 
-const prompt = require("prompt-read");
+/*const prompt = require("prompt-read");
 
 class LinkedList {
     constructor() {
@@ -533,6 +533,7 @@ do {
     console.log("9 - Sair");
     var option = prompt("Opção: ", "number");
     //Main
+    
     switch (option) {
         case 0: // test mode
             list.push(1);
@@ -598,3 +599,4 @@ do {
             message("Opção inválida!");
     }
 } while (option != 9);
+*/
