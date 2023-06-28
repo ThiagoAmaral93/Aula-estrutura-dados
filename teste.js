@@ -611,7 +611,7 @@ do {
 
 
 
-const prompt = require("prompt-read");
+/*const prompt = require("prompt-read");
 
 class LinkedList {
     constructor() {
@@ -855,3 +855,5 @@ do {
     }
 
 } while (option != 9);
+*/
+
